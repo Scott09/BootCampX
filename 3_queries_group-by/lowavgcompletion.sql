@@ -6,4 +6,5 @@ INNER JOIN assignments
 ON assignment_submissions.assignment_id = assignments.id
 WHERE students.end_date IS NULL
 GROUP BY students.name
+HAVING AVG(assignment_submissions.duration) < AVG(assignments.duration)
 ORDER BY average ASC;
